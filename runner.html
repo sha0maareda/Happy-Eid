@@ -216,7 +216,8 @@ function drawCow(){
   ctx.font='70px serif';
   ctx.textAlign='center';
   ctx.textBaseline='middle';
-  ctx.fillText('🐃',x+35,y);
+  ctx.scale(-1, 1);
+  ctx.fillText('🐄', -(x+35), y);
   ctx.restore();
 }
 
