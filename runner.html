@@ -76,12 +76,12 @@ const LEVELS=[
 ];
 
 const PRIZES=[
-  {emoji:'😅',title:'عيد لحمة!',          prize:'مفيش عيدية 😂',      msg:'كل سنة وانت طيب يا {name}!\nالعجول أسرع منك النهارده 🐄💨\nبس عيدك مبارك وعيد سعيد!'},
-  {emoji:'💵',title:'ليفل 1 ✅ برافو!',   prize:'🎉 10 جنيه عيدية',   msg:'عيدك مبارك يا {name}! 🎊\nكسبت 10 جنيه عيدية\nأدام الله أعيادك وفرحتك ورزقك حج بيته الحرام 🕌❤️'},
-  {emoji:'💵',title:'ليفل 2 ✅ ممتاز!',  prize:'💚 50 جنيه عيدية',   msg:'تسلم يا {name}! إنت نمر! 🐯\nكسبت 50 جنيه عيدية\nأدام الله أعيادكم وفرحتكم ورزقكم حج بيته الحرام 🕌🌙'},
-  {emoji:'💵',title:'ليفل 3 ✅ خرافي!',  prize:'💛 100 جنيه عيدية',  msg:'يا سلام عليك يا {name}! 🌟\nكسبت 100 جنيه عيدية\nأدام الله أعيادكم وفرحتكم ورزقكم حج بيته الحرام 🕌🌙⭐'},
-  {emoji:'💵',title:'ليفل 4 ✅ أسطورة!', prize:'🧡 200 جنيه عيدية', msg:'أسطورة يا {name}! 🦁\nكسبت 200 جنيه عيدية!\nأدام الله أعيادكم وفرحتكم ورزقكم حج بيته الحرام 🕌🌟'},
-  {emoji:'🥩',title:'ليفل 5 👑 وحش!',    prize:'🥩 5 كيلو لحمة!',    msg:'يا نينجا العجول يا {name}! 🥷🏆\nعديت كل الليفلات!\nكسبت 5 كيلو لحمة!\nأدام الله أعيادكم وفرحتكم ورزقكم حج بيته الحرام\nكل عام وانتم بخير وسعداء 🌙🌟🎊'},
+  {emoji:'😅',title:'عيد لحمة!',          prize:'مفيش عيدية 😂',      msg:'كل سنة وانت طيب يا {name}!\nالعجول أسرع منك النهارده 🐄💨\nأدام الله أعيادك وفرحتك ورزقك حج بيته الحرام 🕌❤️'},
+  {emoji:'💵',title:'ليفل 1 ✅ !',   prize:'🎉 10 جنيه عيدية',   msg:'عيدك مبارك يا {name}! 🌟\nكسبت 10 جنيه عيدية\nأدام الله أعيادك وفرحتك ورزقك حج بيته الحرام 🕌❤️'},
+  {emoji:'💵',title:'ليفل 2 ✅ !',  prize:'💚 50 جنيه عيدية',   msg:'عيدك مبارك يا {name}! 🌟🌟\nكسبت 50 جنيه عيدية\nأدام الله أعيادك وفرحتك ورزقك حج بيته الحرام 🕌❤️'},
+  {emoji:'💵',title:'ليفل 3 ✅ !',  prize:'💛 100 جنيه عيدية',  msg:'عيدك مبارك يا {name}!🌟🌟🌟\nكسبت 100 جنيه عيدية\nأدام الله أعيادك وفرحتك ورزقك حج بيته الحرام 🕌❤️'},
+  {emoji:'💵',title:'ليفل 4 ✅ !', prize:'🧡 200 جنيه عيدية', msg:'عيدك مبارك يا {name}! 🌟🌟🌟🌟\nكسبت 200 جنيه عيدية!\nأدام الله أعيادك وفرحتك ورزقك حج بيته الحرام 🕌❤️'},
+  {emoji:'🥩',title:'ليفل 5 👑!',    prize:'🥩 5 كيلو لحمة!',    msg:'عيدك مبارك يا {name}!🌟🌟🌟🌟🌟🏆\nعديت كل الليفلات!\nكسبت 5 كيلو لحمة!\nأدام الله أعيادكم وفرحتكم ورزقكم حج بيته الحرام\nكل عام وأنتم بخير وعافية ❤️🌟🎊'},
 ];
 
 let game, animId, lastTime=null;
@@ -206,54 +206,17 @@ function drawPlayer(){
 }
 
 // Draw cow/buffalo ahead of player
-function drawCow(dt){
+function drawCow(){
   const g=game.groundY;
-  const ls=Math.sin(game.frame*.25)*5;
   const bounce=Math.sin(game.frame*.18)*3;
-  const x=canvas.width*.55,y=g-65+bounce;
+  const x=canvas.width*.55, y=g-70+bounce;
   ctx.save();
-  // Shadow
-  ctx.fillStyle='rgba(0,0,0,.2)';ctx.beginPath();ctx.ellipse(x+35,g+4,40,7,0,0,Math.PI*2);ctx.fill();
-  // Body - brown cow color
-  ctx.fillStyle='#8B4513';ctx.beginPath();ctx.ellipse(x+35,y+30,42,26,0,0,Math.PI*2);ctx.fill();
-  // White patches
-  ctx.fillStyle='#f5f5f5';
-  ctx.beginPath();ctx.ellipse(x+28,y+22,18,14,-.2,0,Math.PI*2);ctx.fill();
-  ctx.beginPath();ctx.ellipse(x+50,y+35,12,10,.2,0,Math.PI*2);ctx.fill();
-  // Neck + Head
-  ctx.fillStyle='#7a3a10';
-  ctx.beginPath();ctx.moveTo(x+62,y+18);ctx.lineTo(x+80,y+8);ctx.lineTo(x+88,y+28);ctx.lineTo(x+70,y+32);ctx.closePath();ctx.fill();
-  // Head
-  ctx.fillStyle='#8B4513';ctx.beginPath();ctx.ellipse(x+88,y+18,20,16,.1,0,Math.PI*2);ctx.fill();
-  // Muzzle
-  ctx.fillStyle='#c49a6c';ctx.beginPath();ctx.ellipse(x+100,y+22,10,8,0,0,Math.PI*2);ctx.fill();
-  // Nostrils
-  ctx.fillStyle='#5a2a0a';
-  ctx.beginPath();ctx.ellipse(x+97,y+24,2.5,2,0,0,Math.PI*2);ctx.fill();
-  ctx.beginPath();ctx.ellipse(x+103,y+24,2.5,2,0,0,Math.PI*2);ctx.fill();
-  // Eye
-  ctx.fillStyle='#1a0a00';ctx.beginPath();ctx.arc(x+84,y+14,3.5,0,Math.PI*2);ctx.fill();
-  ctx.fillStyle='white';ctx.beginPath();ctx.arc(x+85,y+13,1.3,0,Math.PI*2);ctx.fill();
-  // Ear
-  ctx.fillStyle='#c49a6c';ctx.beginPath();ctx.ellipse(x+82,y+5,5,9,.3,0,Math.PI*2);ctx.fill();
-  // Horns
-  ctx.strokeStyle='#d4a020';ctx.lineWidth=3;ctx.lineCap='round';
-  ctx.beginPath();ctx.moveTo(x+80,y+4);ctx.quadraticCurveTo(x+78,y-10,x+84,y-14);ctx.stroke();
-  ctx.beginPath();ctx.moveTo(x+88,y+2);ctx.quadraticCurveTo(x+92,y-10,x+88,y-15);ctx.stroke();
-  // Legs
-  ctx.strokeStyle='#6a3010';ctx.lineWidth=7;ctx.lineCap='round';
-  [[x+18,ls],[x+32,-ls],[x+48,ls],[x+62,-ls]].forEach(([lx,sw])=>{
-    ctx.beginPath();ctx.moveTo(lx,y+50);ctx.lineTo(lx+sw,g-2);ctx.stroke();
-  });
-  // Hooves
-  ctx.fillStyle='#2a1a0a';
-  [x+18+ls,x+32-ls,x+48+ls,x+62-ls].forEach(hx=>{ctx.beginPath();ctx.ellipse(hx,g+1,6,3.5,0,0,Math.PI*2);ctx.fill();});
-  // Tail
-  const t2=Date.now()*.001;
-  ctx.strokeStyle='#8B4513';ctx.lineWidth=3;ctx.lineCap='round';
-  ctx.beginPath();ctx.moveTo(x-5,y+25);ctx.quadraticCurveTo(x-20+Math.sin(t2*4)*8,y+10,x-15+Math.sin(t2*3)*6,y-5);ctx.stroke();
-  // Udder (it's a cow!)
-  ctx.fillStyle='#e8a0a0';ctx.beginPath();ctx.ellipse(x+30,y+52,12,8,0,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='rgba(0,0,0,.2)';
+  ctx.beginPath();ctx.ellipse(x+35,g+4,38,6,0,0,Math.PI*2);ctx.fill();
+  ctx.font='70px serif';
+  ctx.textAlign='center';
+  ctx.textBaseline='middle';
+  ctx.fillText('🐃',x+35,y);
   ctx.restore();
 }
 
