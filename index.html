@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>عيدكم مبارك 🌙</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="welcome-page">
+
+<!-- Balloons -->
+<div id="balloons-container"></div>
+
+<!-- Stars -->
+<div id="stars-container"></div>
+
+<div class="welcome-wrap">
+
+  <!-- Big Title -->
+  <div class="eid-main-title">
+    <div class="eid-line1">🌙 عيدكم مبارك 🌙</div>
+    <div class="eid-line2">وكل عام وأنتم بخير</div>
+  </div>
+
+  <!-- Sheep illustration -->
+  <div class="sheep-hero">
+    <canvas id="sheepCanvas" width="180" height="130"></canvas>
+  </div>
+
+  <!-- Card -->
+  <div class="welcome-card">
+    <label class="input-label">✍️ اكتب اسمك الأول</label>
+    <input class="input-field" type="text" id="player-name" placeholder="اسمك هنا..." maxlength="20" />
+
+    <div class="game-choice-label">🎮 اختار اللعبة</div>
+    <div class="game-choice">
+      <button class="game-btn selected" id="btn-g1" onclick="selectGame(1)">
+        <span class="game-btn-icon">🐑💥</span>
+        <span class="game-btn-name">اصطد الخروف</span>
+        <span class="game-btn-desc">خرفان بتنزل، اضغط عليهم!</span>
+      </button>
+      <button class="game-btn" id="btn-g2" onclick="selectGame(2)">
+        <span class="game-btn-icon">🏃🐑</span>
+        <span class="game-btn-name">العجول الهربانة 🐄</span>
+        <span class="game-btn-desc">اجري وتخطى الحواجز!</span>
+      </button>
+    </div>
+
+    <button class="play-btn" id="start-btn" onclick="goPlay()" disabled>
+      يلا نلعب! 🎉
+    </button>
+  </div>
+
+</div>
+
+<script src="welcome.js"></script>
+</body>
+</html>
